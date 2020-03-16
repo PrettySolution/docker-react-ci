@@ -10,7 +10,7 @@ services:
       - /app/node_modules
       - .:/app
 
-# test - docker-compose exec web npm run test
+# test - docker-compose exec web npm run test -- --coverage
   tests:
     build:
       context: .
