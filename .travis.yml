@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: eu-central-1
   app: docker-react-ci
-  env: docker-react-dev
+  env: DockerReactCi-dev-env
   bucket_name: elasticbeanstalk-eu-central-1-725424636855
   bucket_pach: docker-react-ci
   on:
