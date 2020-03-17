@@ -1,4 +1,4 @@
-![.github/workflows/aws-eb-deploy.yml](https://github.com/PrettySolution/docker-react-ci/workflows/.github/workflows/aws-eb-deploy.yml/badge.svg?branch=master)
+![.github/workflows/aws-eb-deploy](https://github.com/PrettySolution/docker-react-ci/workflows/.github/workflows/aws-eb-deploy.yml/badge.svg?branch=master)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Available Scripts
