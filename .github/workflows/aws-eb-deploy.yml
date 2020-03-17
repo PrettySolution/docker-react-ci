@@ -50,7 +50,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       
       - name: Copy depployment package to S3 bucket
-        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ env.EB_S3_BUCKET }}/
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ env.EB_S3_BUCKET }}/${{ env.EB_APP_NAME }}
 
 
 
