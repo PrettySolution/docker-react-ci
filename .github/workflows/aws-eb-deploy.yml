@@ -57,8 +57,8 @@ jobs:
           aws elasticbeanstalk create-application-version \
           --application-name ${{ env.EB_APP_NAME }} \
           --source-bundle S3Bucket="${{ env.EB_S3_BUCKET }}",S3Key="${{ env.EB_APP_NAME }}/${{ env.DEPLOY_PACKAGE_NAME }}" \
-          --version-label "V-${{ github.sha }}" \ 
-          --description "D-${{ github.sha }}" 
+          --version-label "V-${{ github.sha }}" \
+          --description "D-${{ github.sha }}"
            
            
            
