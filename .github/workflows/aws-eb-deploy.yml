@@ -7,7 +7,7 @@ env:
   EB_S3_BUCKET:        elasticbeanstalk-eu-central-1-725424636855
   EB_APP_NAME:         docker-react-ci
   EB_ENV_NAME:         DockerReactCi-dev-env
-  DEPLOY_PACKAGE_NAME: actions_${{ github_sha }}.zip
+  DEPLOY_PACKAGE_NAME: actions_${{ github.sha }}.zip
   
 
 on:
