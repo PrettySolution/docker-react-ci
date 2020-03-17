@@ -3,7 +3,12 @@
 
 name: aws-eb-deploy
 env:
-  AWS_REGION: eu-central-1
+  AWS_REGION:          eu-central-1
+  EB_S3_BUCKET:        elasticbeanstalk-eu-central-1-725424636855
+  EB_APP_NAME:         docker-react-ci
+  EB_ENV_NAME:         DockerReactCi-dev-env
+  DEPLOY_PACKAGE_NAME: actions_${{ github_sha }}.zip
+  
 
 on:
   push:
@@ -17,7 +22,7 @@ jobs:
     steps:
       - id: test
         
-      - name: clone repo
+      - name: Clone repo
         uses: actions/checkout@v2
       
       - name: build test image
@@ -33,13 +38,21 @@ jobs:
     runs-on: [ubuntu-latest]
     needs: [test]
     steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+      
+      - name: Create ZIP package
+        run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x .git*
+        
       - name: Configure AWS Credentials Action For GitHub Actions
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-    
+      
+      - name: Copy depployment package to S3 bucket
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ env.EB_S3_BUCKET }}/
 
 
 
