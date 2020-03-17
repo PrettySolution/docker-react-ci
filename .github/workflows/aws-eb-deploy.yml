@@ -51,7 +51,29 @@ jobs:
       
       - name: Copy depployment package to S3 bucket
         run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ env.EB_S3_BUCKET }}/${{ env.EB_APP_NAME }}/
-
-
-
+      
+      - name: Deploy application
+        run: |
+          aws elasticbeanstalk create-application-version \
+          --application-name ${{ env.EB_APP_NAME }} \
+           --source-bundle S3Bucket="${{ env.elasticbeanstalk-eu-central-1-725424636855 }}",S3Key="${{ env.EB_APP_NAME }}/${{ env.DEPLOY_PACKAGE_NAME }}" \
+            --version-label "V-${{ github.sha }}" \ 
+             --description "D-${{ github.sha }}" 
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
 
