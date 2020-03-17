@@ -61,7 +61,7 @@ jobs:
           --description "D-${{ github.sha }}"
        
       - name: Update environment
-        run: aws elasticbeanstalk update-environment --envitonment-name ${{ env.EB_ENV_NAME }} --version-label "V-${{ github.sha }}"
+        run: aws elasticbeanstalk update-environment --environment-name ${{ env.EB_ENV_NAME }} --version-label "V-${{ github.sha }}"
            
            
            
