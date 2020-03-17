@@ -10,14 +10,17 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         node-version: [12.16.1]
     steps:
       - name: check docker
-        run: docker --version
+        uses: actions/checkout@v2
+      - run: |
+          docker --version
+          ls
+      
+        
+
         
 #     - uses: actions/checkout@v2
 #     - name: Use Node.js ${{ matrix.node-version }}
