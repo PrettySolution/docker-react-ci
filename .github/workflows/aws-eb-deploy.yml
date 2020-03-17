@@ -13,11 +13,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: check docker
+      - name: clone repo
         uses: actions/checkout@v2
-      - run: |
+      
+      - name: build test image
+        run: |
           docker --version
-          ls
+          docker build -t test-me -f Dockerfile.dev .
+          
+      - name: run tests
+        run: |
+          docker run -e CI=true test-me npm run test
       
         
 
