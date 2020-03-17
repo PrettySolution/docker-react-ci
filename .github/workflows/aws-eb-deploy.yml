@@ -19,9 +19,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    steps:
-      - id: test
-        
+    steps:        
       - name: Clone repo
         uses: actions/checkout@v2
       
